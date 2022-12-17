@@ -1,0 +1,500 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="" name="description">
+<meta content="" name="author">
+
+<meta name="experiment-short-name" content="temperature-sensor">
+<meta name="developer-institute" content="coep">
+<meta name="learning-unit" content="CHARACTERISE THE TEMPERATURE SENSOR(THERMOCOUPLE)">
+<meta name="task-name" content="Theory">
+
+<!-- For iPhone -->
+<meta name="msapplication-TileColor" content="#4076e0">
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#4076e0">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#4076e0">
+<title>वर्चुअल लैब्स</title>
+<link rel="shortcut icon" href="./assets/images/favicon.ico">
+<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./assets/css/github-markdown.min.css">
+<link rel="stylesheet" href="./assets/css/vlabs-style.css">
+
+<script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+<style>
+h1 {
+font-size: 1.8rem;
+}
+h2 {
+font-size: 1.4rem;
+}
+h3 {
+font-size: 1.2rem;
+}
+
+h2, h3 {
+font-weight: 800;
+}
+</style>
+</head>
+<body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between">
+
+<header class="vlabs-header sticky-top bg-white">
+<nav class="p-0 navbar navbar-light d-flex align-items-stretch">
+
+<button class="navbar-toggler px-4" type="button" onclick="toggle()">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="d-flex justify-content-center">
+<a href="https://vlab.co.in" class="navbar-brand">
+<img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+</a>
+</div>
+
+<div id="headerNavbar" class="d-none border-top flex-grow-1 d-lg-flex align-items-center">
+<ul class="navbar-nav ml-auto text-center d-flex flex-md-row">
+<li class="nav-item px-2 m-1">
+<a href="https://vlab.co.in">होम</a>
+</li>
+<li class="nav-item px-2 m-1">
+<a href="https://vlab.co.in/participating-institutes">भागीदार</a>
+</li>
+<li class="nav-item px-2 m-1">
+<a href="https://vlab.co.in/contact-us">संपर्क</a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="container-fluid flex-fill d-flex flex-column vlabs-page-main">
+<div class="row d-flex justify-content-between">
+<div class="flex-column">
+
+<div class="row py-4 px-4 breadcrumbs">
+<a href="https://www.vlab.co.in/broad-area-electrical-engineering">
+इलेक्ट्रिकल इंजीनियरिंग
+</a>
+<span class="mx-2">
+<i aria-hidden="true" class="fa fa-angle-right"></i>
+</span>
+<a href="https://sl-coep.vlabs.ac.in">
+सेंसर्स मॉडलिंग और सिमुलेशन लैब
+</a>
+<span class="mx-2">
+<i aria-hidden="true" class="fa fa-angle-right"></i>
+</span>
+<a href="https://sl-coep.vlabs.ac.in/List of experiments.html">
+प्रयोग
+</a>
+</div>
+
+</div>
+<div class="flex-column">
+<div id="plugin-bug-report"></div>
+<div id="plugin-rating"></div>
+</div>
+</div>
+<div class="row flex-grow-1 d-flex flex-nowrap flex-column flex-lg-row">
+<div class="modal fade popupmenu" id="popupMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">
+<a href="https://vlab.co.in" class="navbar-brand">
+<img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+</a>
+</h5>
+<button type="button" class="btn-close align-self-center" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body nav-menu">
+<div>
+<div class="d-flex nav-menu-body">
+<a href="index.html" class="p-2 ">
+उद्देश्य
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="theory.html" class="p-2  current-item ">
+सिद्धांत
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="pretest.html" class="p-2 ">
+प्रीटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="procedure.html" class="p-2 ">
+कार्यप्रणाली
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="simulation.html" class="p-2 ">
+सिमुलेशन
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="posttest.html" class="p-2 ">
+पोस्टटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="references.html" class="p-2 ">
+सन्दर्भ
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="feedback.html" class="p-2 ">
+प्रतिपुष्टि
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="nav flex-column sidebar nav-menu flex-shrink-0 px-lg-4 align-items-center align-items-lg-start hidden d-none d-lg-flex" id="menu">
+<div>
+<div class="d-flex nav-menu-body">
+<a href="index.html" class="p-2 ">
+उद्देश्य
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="theory.html" class="p-2  current-item ">
+सिद्धांत
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="pretest.html" class="p-2 ">
+प्रीटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="procedure.html" class="p-2 ">
+कार्यप्रणाली
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="simulation.html" class="p-2 ">
+सिमुलेशन
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="posttest.html" class="p-2 ">
+पोस्टटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="references.html" class="p-2 ">
+सन्दर्भ
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="feedback.html" class="p-2 ">
+प्रतिपुष्टि
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+</div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+<div class="text-center fix-spacing">
+<h3 id="characterise-the-temperature-sensorthermocouple">तापमान संवेदक (थर्मोकपल) की विशेषता</h3>
+
+</div>
+<p><strong>पूर्वापेक्षा</strong></p>
+<p>थर्मोकपल पर प्रयोग करने से पहले, छात्रों को इनका ज्ञान होना चाहिए :</p>
+<ol>
+<li>तापमान मापन का महत्व</li>
+<li>विभिन्न तापमान के स्केल्स</li>
+<li>तापमान मापन के विभिन्न तरीके</li>
+</ol>
+<p><strong>थर्मोइलेक्ट्रिक इफ़ेक्ट</strong></p>
+<p>थर्मोइलेक्ट्रिक प्रभाव तापमान अंतर का विद्युत वोल्टेज में प्रत्यक्ष रूपांतरण है। जब दोनों तरफ तापमान में अंतर होता है, तो एक थर्मोइलेक्ट्रिक डिवाइस वोल्टेज उत्पन्न करता है।  इसके विपरीत जब उस पर वोल्टेज लागू की जाती है, तो यह तापमान में अंतर पैदा करता है।</p>
+<p>तीन बुनियादी इफेक्ट्स होते हैं, जो थर्मोइलेक्ट्रिक डिवाइस के कार्य सिद्धांत की व्याख्या करते हैं।</p>
+<ol>
+<li><p><strong>सीबेक इफ़ेक्ट:</strong> जब दो असामान धातुओं से बने तार दोनों सिरों पर जोड़े जाते हैं और सिरों में से एक को गरम किया जाता है, तो थर्मोइलेक्ट्रिक सर्किट में एक निरंतर करंट  बहता है।  जर्मन-एस्टोनियाई भौतिक विज्ञानी थॉमस सीबेक ने 1821 में यह खोज की थी। इसे कहते हैं <strong>थर्मोइलेक्ट्रिक इफ़ेक्ट</strong> या <strong>सीबेक इफ़ेक्ट</strong>.</p>
+<center><img src="images/img1.png" title=""></center>
+</li>
+<li><p><strong>पेल्टियरइफ़ेक्ट:</strong> पेल्टियर ने पाया कि दो असमान धातुओं के जंक्शन गर्म या ठंडे हो जाते हैं, यह इस पर निर्भर करता है कि उसमें विद्युत प्रवाह किस दिशा में बहता है। एक दिशा में करंट बहने से गर्मी उत्पन्न होती है, यदि धारा को उलट दिया जाता है तो गर्मी अवशोषित हो जाती है। इस इफ़ेक्ट में हमेशा जंक्शनों के जोड़े शामिल होते हैं। पल्टिएर इफ़ेक्ट को करंट की पहली घात (पॉवर) के अनुपात में पाया जाता है, न कि इसके वर्ग के, जैसा कि पूरे सर्किट में प्रतिरोध के कारण गर्मी का अपरिवर्तनीय निर्माण होता है।  वास्तव में यह डिवाइस गर्मी को एक तरफ से  दूसरी तरफ  स्थानांतरित करता है।</p>
+<center><img src="images/img2.png" title=""></center>
+</li>
+<li><p><strong>थॉम्पसन इफ़ेक्ट:</strong> यह एक कंडक्टिंग मटेरियल को गर्म या ठंडा करते समय टेम्परेचर ग्रेडिएंट के अस्तित्व का वर्णन करता है। दो बिंदुओं के बीच तापमान में अंतर वाला कोई भी करंट-वाहक कंडक्टर (सुपरकंडक्टर को छोड़कर), सामग्री के आधार पर या तो गर्मी को अवशोषित या उत्सर्जित करेगा।</p>
+<center><img src="images/img3.png" title=""></center>
+
+</li>
+</ol>
+<p><strong>थर्मोकपल का परिचय</strong></p>
+<p><strong>थर्मोकपल क्या है ?</strong>
+एक थर्मोकपल दो अलग-अलग धातुओं के बीच एक जंक्शन है, जो तापमान के अंतर के अनुसार वोल्टेज का उत्पादन करता है।  जब असमान  धातुओं से बने दो तार दोनों सिरों पर जुड़ जाते हैं और सिरों में से एक को गरम किया जाता है, तो एक निरंतर करंट थर्मोइलेक्ट्रिक सर्किट में बहता है (थर्मोइलेक्ट्रिक इफ़ेक्ट या सीबेक इफ़ेक्ट)।</p>
+<p><strong>रेफरेन्स जंक्शन (कोल्ड जंक्शन) की आवश्यकता:</strong>
+थर्मोकपल्स में, विद्युत प्रवाह के कारण वोल्टेज निर्माण होता है।  यह करंट प्रवाह कंडक्टिंग तार के दो सिरों पर तापमान में अंतर पर निर्भर करता है। थर्मोकपल हमेशा तापमान में अंतर को मापते हैं न कि पूर्ण तापमान को।</p>
+<p>एक जंक्शन के तापमान को मापने के लिए, दूसरे जंक्शन को एक संदर्भ तापमान पर रखा जाता है। चूँकि यह आइस बाथ का उपयोग करके किया जाता है, इसे सामान्य रूप से कोल्ड जंक्शन कहा जाता है।</p>
+<p>संदर्भ तापमान के लिए आइस बाथ का उपयोग करना लेबोरेटरी कैलिब्रेशन के लिए उपयोगी है, लेकिन अधिकांश माप और नियंत्रण अनुप्रयोगों के लिए सुविधाजनक नहीं है।  आइस बाथ के बजाय, थर्मिस्टर या डायोड जैसे थर्मली सेंसिटिव डिवाइस का उपयोग करके कोल्ड जंक्शन का प्रभाव जोड़ा जाता है।  इसे आइसोथर्मल ब्लॉक भी कहा जाता है।  टर्मिनलों के बीच किसी भी टेम्परेचर ग्रेडिएंट को कम करने के लिए विशेष देखभाल की जाती है।  इसलिए, एक ज्ञात कोल्ड जंक्शन से वोल्टेज का अनुकरण किया जा सकता है, और उचित करैक्शन किया जाता है।  इसे कोल्ड जंक्शन कॉम्पेन्सेशन कहा जाता है।</p>
+<p><strong>सॉफ्टवेयर कॉम्पेन्सेशन</strong> थर्मोकपल्स को मापने के लिए उपयोग की जाने वाली सबसे बहुमुखी तकनीक है।  एक ही ब्लॉक पर कई थर्मोकपल्स जुड़े हो सकते हैं। यह तकनीक थर्मोकपल्स के प्रकारों पर निर्भर नहीं करती है।  सभी रूपांतरण कंप्यूटर द्वारा किए जाते हैं।  नुकसान यह है कि कंप्यूटर को रेफेरेंस जंक्शन तापमान की गणना के लिए अतिरिक्त समय की आवश्यकता होती है।  अधिकतम गति के लिए हम हार्डवेयर कॉम्पेन्सेशन का उपयोग कर सकते हैं।</p>
+<p><strong>हार्डवेयर कॉम्पेन्सेशन</strong> को एक बैटरी डालने के रूप में देखा जा सकता है जो रेफेरेंस जंक्शन द्वारा उत्पादित ऑफसेट वोल्टेज को कैंसिल करता है।  ये व्यावसायिक रूप से उपलब्ध सर्किट्स एक इलेक्ट्रॉनिक आइस पॉइंट रेफेरेंस प्रदान करते हैं।  उनका मुख्य लाभ गति है जबकि नुकसान यह है कि यह केवल एक विशेष प्रकार के थर्मोकपल का कॉम्पेन्सेशन करने के लिए ही अनुकूल है।</p>
+<p><strong>थर्मोकपल के गुण :</strong>
+थर्मोकपल सामग्री के लिए चयन मानदंड:</p>
+<ol>
+<li>तापमान सीमा</li>
+<li>गलनांक</li>
+<li>विभिन्न वायुमंडलीय स्थितियों के लिये प्रतिक्रिया</li>
+<li>संयोजन में थर्मोइलेक्ट्रिक आउटपुट</li>
+<li>इलेक्ट्रिकल कंडक्टैंस</li>
+<li>स्थिरता</li>
+<li>विनिमेयशीलता</li>
+<li>पुनरावर्तनीयता</li>
+<li>सटीकता</li>
+<li>विभेदन क्षमता</li>
+<li>लागत</li>
+<li>उपलब्धता</li>
+<li>रासायनिक गुण</li>
+<li>अब्रेशन और वाइब्रेशन रेसिस्टेंस</li>
+<li>स्थापित करने की आवश्यकताएँ</li>
+<li>चुंबकीय गुण</li>
+<li>संभालने और निर्माण में आसानी</li>
+</ol>
+<p><strong>याद रखने योग्य बातें:</strong>
+<strong>थर्मोकपल के तार का आकार :</strong> थर्मोकपल सेंसर में उपयोग किए जाने वाले तार के आकार का चयन करना उसके अनुप्रयोग पर निर्भर करता है।  आम तौर पर, जब उच्च तापमान के लिए लंबी समयावधि की आवश्यकता होती है, तो बड़े आकार के तारों को चुना जाना चाहिए।  जब संवेदनशीलता प्रमुख आवश्यकता होती है, तो छोटे आकार का उपयोग किया जाना चाहिए।</p>
+<p><strong>थर्मोकपल प्रोब की लंबाई :</strong> चूँकि थर्मोकपल के गरम सिरे से गर्मी के संचालन का प्रभाव कम से कम होना चाहिए, थर्मोकपल प्रोब में पर्याप्त लंबाई होनी चाहिए।  जब तक पर्याप्त रूप से डूबा नहीं होगा, रीडिंग्स निम्न होंगी।  यह सुझाव दिया जाता है कि थर्मोकपल को कम से कम सुरक्षा ट्यूब के बाहरी व्यास के चार गुना दूरी तक डुबो कर रखा जाए।</p>
+<p><strong>थर्मोकपल का स्थान :</strong> थर्मोकपल्स को हमेशा वर्क लोड के साथ एक निश्चित तापमान संबंध रखने के योग्य होना चाहिए।  आमतौर पर, थर्मोकपल को वर्क लोड और गर्मी के स्रोत के बीच स्थित होना चाहिए और वर्क लोड से गर्मी स्रोत तक की दूरी के लगभग 1/3 दूरी पर स्थित होना चाहिए।</p>
+<p><strong>धातु संयोजन के आधार पर थर्मोकपल्स के प्रकार</strong>
+विभिन्न अनुप्रयोगों के लिए विभिन्न प्रकार के थर्मोकपल्स उपयुक्त होते हैं।  उन्हें आमतौर पर तापमान सीमा और संवेदनशीलता के आधार पर चुना जाता है।  कम संवेदनशीलता (B, R, और S प्रकार) वाले थर्मोकपल्स में कम विभेदन क्षमता होती है।</p>
+<p><strong>थर्मोवेल की आवश्यकता:</strong></p>
+<ul>
+<li><p>थर्मोवेल्स का उपयोग औद्योगिक तापमान माप में तापमान सेंसर (अक्सर एक थर्मोकपल) और उस वातावरण, जिसका तापमान मापा जाना है, के बीच आइसोलेशन प्रदान करने के लिए  किया जाता है ।</p>
+</li>
+<li><p>वें इन्ट्रूसिव फिटिंग्स हैं और स्टैटिक एंड डायनामिक फ्लूइड फोर्सेस के अधीन होते हैं।  ये फोर्सेस उनके डिजाइन को नियंत्रित करते हैं। वोर्टेक्स शेडिंग प्रमुख चिंता का विषय है क्योंकि यह थर्मोवेल को फ्लो इंड्यूस्ड रेजोनेंस और परिणामस्वरूप फटीग फेलियर के लिए मजबूर करने में सक्षम होता है। यह विशेष रूप से हाई फ्लूइड वेलोसिटी पर महत्वपूर्ण है।</p>
+</li>
+<li><p>थर्मोवेल्स का उपयोग, जाँच की जाने वाली प्रक्रिया को बिना बाधित किए, टेम्परेचर सेंसिंग डिवाइसेस की मरम्मत की सुविधा के लिए किया जाता है।</p>
+</li>
+<li><p>थर्मोवेल तीन मुख्य बैरल या शैंक डिजाइन टाइप्स में उपलब्ध हैं।  बैरल, या शैंक, कंटेनर शैली का उपकरण है, जिसे प्रक्रिया प्रवाह में डाला जाता है। चूंकि थर्मोवेल्स को सीधे प्रक्रिया प्रवाह में डाला जाता है, इसलिए लक्ष्य यह है कि कम से कम परवाह को बाधित करते हुए माप लिया जा सके।</p>
+</li>
+</ul>
+<p><strong>जब उपलब्ध प्रकार के थर्मोवेल्स के बीच चयन किया जाता है, तो इन चीजों का ध्यान रख जाता है :</strong></p>
+<ul>
+<li>स्टेम लंबाई (बोर से कुएं के अंत तक की लंबाई) और थर्मोवेल का बोर डायमीटर।</li>
+<li>उस माध्यम का तापमान और चिपचिपाहट, जिसमें थर्मोवेल को बैठाया जाएगा।</li>
+<li>लैगिंग एक्सटेंशन, जिसके माध्यम से सेंसर को पास करना होगा।</li>
+</ul>
+<p><strong>थर्मोकपल के प्रकार:</strong></p>
+<table>
+<thead>
+<tr>
+<th>थर्मोकपल के प्रकार</th>
+<th>धातुओं के नाम</th>
+<th>उपयोगी अनुप्रयोग सीमा</th>
+<th>गुण और अनुप्रयोग</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>B</td>
+<td>प्लेटिनम 30%, रोडियम (+), प्लैटिनम 6%, रोडियम(-)</td>
+<td>32-3100F, 0-1700C</td>
+<td>50C से नीचे सीमित उपयोग</td>
+</tr>
+<tr>
+<td>C</td>
+<td>टंगस्टन 5%, रेनियम (+), टंगस्टन 26%, रेनियम (-)</td>
+<td>32-4200F, 0-2300C</td>
+<td>260 डिग्री सेल्सियस से ऊपर ऑक्सीजन की उपस्थिति में उपयोग नहीं किया जाना चाहिए; बहुत उच्च तापमान पर वैक्यूम फर्नेसेस के लिए अच्छी तरह से अनुकूल है।</td>
+</tr>
+<tr>
+<td>E</td>
+<td>क्रोमेल (+), कॉन्स्टेंटन (-)</td>
+<td>-200-1650F, -95-900C</td>
+<td>संवेदनशीलता 68μV/°C, गैर चुंबकीय, क्रायोजेनिक उपयोग के लिए सबसे अनुकूल।</td>
+</tr>
+<tr>
+<td>J</td>
+<td>लोहा (+), कॉन्स्टेंटन (-)</td>
+<td>-58-1650F, -50-900C</td>
+<td>संवेदनशीलता 55 μV/°C, चुंबकीय गुण, 770 डिग्री सेल्सियस से ऊपर उपयोग को प्रतिबंधित करते हैं।</td>
+</tr>
+<tr>
+<td>K</td>
+<td>क्रोमेल (+), अलुमेल (-)</td>
+<td>-328-2300F, -200-1260C</td>
+<td>सबसे आम संवेदनशीलता 41 μV/°C, सस्ता, रैखिक, निकल के चुंबकीय गुणों के कारण 350 ° सेल्सियस से ऊपर उपयोग प्रतिबंधित।</td>
+</tr>
+<tr>
+<td>R</td>
+<td>प्लेटिनम 13%, रोडियम (+), प्लैटिनम (-)</td>
+<td>160-2640F, 70-1450C</td>
+<td>आमतौर पर उनकी उच्च लागत और कम संवेदनशीलता के कारण केवल उच्च तापमान माप के लिए उपयोग किया जाता है।</td>
+</tr>
+<tr>
+<td>S</td>
+<td>प्लेटिनम 10%, रोडियम (+), प्लैटिनम (-)</td>
+<td>1800-2640F, 982-1450C</td>
+<td>आमतौर पर उनकी उच्च लागत और कम संवेदनशीलता के कारण केवल उच्च तापमान माप के लिए उपयोग किया जाता है।</td>
+</tr>
+<tr>
+<td>T</td>
+<td>कॉपर (+), कॉन्स्टेंटन (-)</td>
+<td>-330-660F, -200-350C</td>
+<td>संवेदनशीलता 43 μV/°C, अक्सर अंतर माप के लिए उपयोग किया जाता है।</td>
+</tr>
+</tbody></table>
+
+</div>
+</div>
+</div>
+<footer class="text-light pt-2 vlabs-footer d-flex flex-column">
+<div class="row px-5 mx-0">
+<div class="col d-flex flex-column">
+<span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">कम्युनिटी लिंक्स</span>
+<a href="https://www.sakshat.ac.in/" class="text-light">साक्षात पोर्टल</a>
+<a href="http://outreach.vlabs.ac.in/" class="text-light">आउटरीच पोर्टल</a>
+<a href="https://vlab.co.in/faq" class="text-light">FAQ: वर्चुअल लैब्स</a>
+</div>
+<div class="col d-flex flex-column">
+<span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">हमसे संपर्क करें</span>
+<span> फोन: सामान्य जानकारी: 011-26582050 </span>
+<span> ईमेल: support@vlabs.ac.in </span>
+</div>
+<div class="col d-flex flex-column">
+<span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">हमारा अनुसरण करें</span>
+<div class="social-links">
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #55acee;" href="https://twitter.com/TheVirtualLabs">
+<i class="fa fa-twitter"></i>
+</a>
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #3b5998;" href="https://www.facebook.com/Virtual-Labs-IIT-Delhi-301510159983871/">
+<i class="fa fa-facebook"></i>
+</a>
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #e52d27;" href="https://www.youtube.com/watch?v=asxRaOgk6a0">
+<i class="fa fa-youtube"></i>
+</a>
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #2867B2;" href="https://in.linkedin.com/in/virtual-labs-008ba9136">
+<i class="fa fa-linkedin"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="m-0 py-2 text-center" style="font-family: &quot;Open Sans&quot;, sans-serif; background: #212121;">
+<a class="text-primary font-weight-bold" href="https://www.gnu.org/licenses/agpl-3.0.en.html"> AGPL 3.0 </a>
+&nbsp;&amp;&nbsp;
+<a class="text-primary font-weight-bold" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"> क्रिएटिव कॉमन्स (CC BY-NC-SA 4.0) </a>
+</div>
+</footer>
+
+<script src="./assets/js/toggleSidebar.js"></script>
+
+
+
+</body></html>
